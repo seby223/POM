@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using POM.Helpers;
+﻿using POM.Helpers;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using POM.Pages;
 using FluentAssertions;
 
 namespace POM.Tests
