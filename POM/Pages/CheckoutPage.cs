@@ -12,9 +12,9 @@ namespace POM.Pages
         private readonly By _guest_option = By.CssSelector("[id=\"login:guest\"]");
         private readonly By _guest_continue_button = By.CssSelector("#onepage-guest-register-button");
 
-        private readonly By _billing_first_name_text = By.CssSelector("[id=\"billing:firstname\"]");
-        private readonly By _billing_middle_name_text = By.CssSelector("[id=\"billing:middlename\"]");
-        private readonly By _billing_last_name_text = By.CssSelector("[id=\"billing:lastname\"]");
+        private readonly By _billing_first_name_text = By.CssSelector("#billing\\:firstname");
+        private readonly By _billing_middle_name_text = By.CssSelector("#billing\\:middlename");
+        private readonly By _billing_last_name_text = By.CssSelector("#billing\\:lastname");
         private readonly By _billing_company_text = By.CssSelector("[id=\"billing:company\"]");
         private readonly By _billing_email_text = By.CssSelector("[id=\"billing:email\"]");
         private readonly By _billing_address_1_text = By.CssSelector("[id=\"billing:street1\"]");
@@ -27,9 +27,9 @@ namespace POM.Pages
         private readonly By _billing_telephone_text = By.CssSelector("[id=\"billing:telephone\"]");
         private readonly By _billing_fax_text = By.CssSelector("[id=\"billing:fax\"]");
         private readonly By _billing_same_address_radio_list = By.CssSelector("[name=\"billing[use_for_shipping]\"]");
-        private readonly By _continue_buttons = By.CssSelector(".button.validation-passed");
+        private readonly By _billing_continue_button = By.CssSelector("#billing-buttons-container .button");
 
-        private readonly By _shipping_edit_button = By.CssSelector(".step-title>a");
+        private readonly By _shipping_edit_button = By.CssSelector("#opc-shipping .step-title");
         private readonly By _shipping_first_name_text = By.CssSelector("[id=\"shipping:firstname\"]");
         private readonly By _shipping_last_name_text = By.CssSelector("[id=\"shipping:lastname\"]");
         private readonly By _shipping_address_1_text = By.CssSelector("[id=\"shipping:street1\"]");
@@ -39,6 +39,7 @@ namespace POM.Pages
         private readonly By _shipping_postcode_text = By.CssSelector("[id=\"shipping:postcode\"]");
         private readonly By _shipping_country_select = By.CssSelector("[id=\"shipping:country_id\"]");
         private readonly By _shipping_telephone_text = By.CssSelector("[id=\"shipping:telephone\"]");
+        private readonly By _shipping_continue_button = By.CssSelector("#shipping-buttons-container .button");
 
         private readonly By _shipping_method_free_radio = By.CssSelector("#s_method_freeshipping_freeshipping");
         private readonly By _shipping_method_flat_radio = By.CssSelector("#s_method_flatrate_flatrate");
@@ -46,11 +47,14 @@ namespace POM.Pages
 
         private readonly By _payment_continue_button = By.CssSelector("#payment-buttons-container .button");
         private readonly By _review_place_order_button = By.CssSelector(".button.btn-checkout");
+
+        private readonly By _order_placed_successfully = By.CssSelector(".page-title h1");
         #endregion
 
         public void SelectGuestOption()
         {
             Driver.WebDriver.FindElement(_guest_option).Click();
+            Driver.WebDriver.FindElement(_guest_continue_button).Click();
         }
 
         public void SelectShippingAddress(bool a)
@@ -61,10 +65,10 @@ namespace POM.Pages
                 Driver.WebDriver.FindElements(_billing_same_address_radio_list).Last().Click();
         }
 
-        public void BillingFillNames(string first, string middle, string last)
+        public void BillingFillNames(string first, string last)
         {
             Driver.WebDriver.FindElement(_billing_first_name_text).SendKeys(first);
-            Driver.WebDriver.FindElement(_billing_middle_name_text).SendKeys(middle);
+            //Driver.WebDriver.FindElement(_billing_middle_name_text).SendKeys(middle);
             Driver.WebDriver.FindElement(_billing_last_name_text).SendKeys(last);
         }
 
@@ -83,9 +87,10 @@ namespace POM.Pages
         public void BillingFillCountryandState(string country, string state)
         {
             new SelectElement(Driver.WebDriver.FindElement(_billing_country_select)).SelectByValue(country);
-            if (IsBillingStateSelectDisplayed())
+            if (IsBillingStateSelectDisplayed() == true)
                 new SelectElement(Driver.WebDriver.FindElement(_billing_state_select)).SelectByValue(state);
-            Driver.WebDriver.FindElement(_billing_state_text).SendKeys(state);
+            else
+                Driver.WebDriver.FindElement(_billing_state_text).SendKeys(state);
         }
 
         public void BillingFillZipPhone(string postcode, string telephone)
@@ -96,12 +101,12 @@ namespace POM.Pages
 
         public void BillingClickOnContinue()
         {
-            Driver.WebDriver.FindElement(_continue_buttons).Click();
+            Driver.WebDriver.FindElement(_billing_continue_button).Click();
         }
 
         public void FillOutBillingForm()
         {
-            BillingFillNames("first","middle","last");
+            BillingFillNames("first","last");
             BillingFillAddress("asd@yahoo.com","asd home","asd city");
             BillingFillCountryandState("US","3");
             BillingFillZipPhone("123123","1231231231");
@@ -111,12 +116,12 @@ namespace POM.Pages
 
         public void ClickOnShippingEdit()
         {
-            Driver.WebDriver.FindElements(_shipping_edit_button).ToArray()[2].Click();
+            Driver.WebDriver.FindElement(_shipping_edit_button).Click();
         }
 
         public void ShippingClickOnContinue()
         {
-            Driver.WebDriver.FindElements(_continue_buttons).ToArray()[1].Click();
+            Driver.WebDriver.FindElement(_shipping_continue_button).Click();
         }
 
         public void ShippingFillNames(string first, string last)
@@ -162,7 +167,39 @@ namespace POM.Pages
             ShippingClickOnContinue();
         }
 
+        public void SelectShippingMethod(string s)
+        {
+            if (s.Equals("free"))
+                Driver.WebDriver.FindElement(_shipping_method_free_radio).Click();
+            else
+                Driver.WebDriver.FindElement(_shipping_method_flat_radio).Click();
+        }
 
+        public void ShippingMethodClickOnContinue()
+        {
+            Driver.WebDriver.FindElement(_shipping_method_continue_button).Click();
+        }
+
+        public void FillShippingMethod()
+        {
+            SelectShippingMethod("free");
+            ShippingClickOnContinue();
+        }
+
+        public void PaymentClickOnContinue()
+        {
+            Driver.WebDriver.FindElement(_payment_continue_button).Click();
+        }
+
+        public void ClickOnPlaceOrder()
+        {
+            Driver.WebDriver.FindElement(_review_place_order_button).Click();
+        }
+
+        public bool OrderSuccess()
+        {
+            return Driver.WebDriver.FindElement(_order_placed_successfully).Text.Equals("Your order has been received.");
+        }
 
     }
 }

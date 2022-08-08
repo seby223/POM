@@ -12,12 +12,11 @@ namespace POM.Helpers
 {
     public class BaseTest
     {
-       
 
         [SetUp]
         public void Setup()
         {
-            Driver.WebDriver = new ChromeDriver("C:\\Users\\Seby\\Desktop\\C#ProjectsEvozon\\TestProject1\\TestProject1\\Drivers");
+            Driver.WebDriver = new ChromeDriver(".\\Drivers");
             Driver.WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
             WaitHelpers.WaitUntilDocumentReady();
         }
@@ -25,8 +24,8 @@ namespace POM.Helpers
         [TearDown]
         public void TearDown()
         {
-            Driver.WebDriver.Close();
-            Driver.WebDriver.Quit();
+            //Driver.WebDriver.Close();
+            //Driver.WebDriver.Quit();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _addToCartButton = By.CssSelector(".add-to-cart-buttons .button.btn-cart");
+        private readonly By _addToCartButton = By.CssSelector(".btn-cart:not(#map-popup-button)");
         private readonly By _colors_list = By.CssSelector("#configurable_swatch_color>li:not(.not-available)");
         private readonly By _sizes_list = By.CssSelector("#configurable_swatch_size>li:not(.not-available)");
         private readonly By _quantity = By.CssSelector("#qty");
