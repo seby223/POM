@@ -5,7 +5,7 @@ using FluentAssertions;
 namespace POM.Tests
 {
     [TestFixture]
-    public class BigTests : BaseTest
+    public class SystemTest : BaseTest
     {
         [Test]
         public void Checkout()
