@@ -4,7 +4,7 @@ using POM.Helpers;
 
 namespace POM.Pages
 {
-    public class SearchResultsPage
+    public class SearchResultsPage : Header
     {
         #region Selectors
 
@@ -12,7 +12,7 @@ namespace POM.Pages
 
         #endregion
 
-        public void GoToDetailsPage()
+        public void GoToDetailsPageOfFirstItem()
         {
             Driver.WebDriver.FindElements(_productNameList).First().Click();
         }

@@ -33,9 +33,9 @@ namespace POM.Tests
         [Test]
         public void AddToCartButtonIsDisplayed()
         {
-            Pages.HomePage.Search();
+            Pages.HomePage.Search("Chelsea Tee");
 
-            Pages.SearchResultsPage.GoToDetailsPage();
+            Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
 
             Pages.ProductDetailsPage.IsAddToCartButtonDisplayed().Should().BeTrue();
         }
