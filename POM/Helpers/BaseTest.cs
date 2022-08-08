@@ -24,8 +24,8 @@ namespace POM.Helpers
         [TearDown]
         public void TearDown()
         {
-            //Driver.WebDriver.Close();
-            //Driver.WebDriver.Quit();
+            Driver.WebDriver.Close();
+            Driver.WebDriver.Quit();
         }
     }
 }

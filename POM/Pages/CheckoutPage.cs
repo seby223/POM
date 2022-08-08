@@ -183,7 +183,7 @@ namespace POM.Pages
         public void FillShippingMethod()
         {
             SelectShippingMethod("free");
-            ShippingClickOnContinue();
+            ShippingMethodClickOnContinue();
         }
 
         public void PaymentClickOnContinue()
@@ -198,7 +198,7 @@ namespace POM.Pages
 
         public bool OrderSuccess()
         {
-            return Driver.WebDriver.FindElement(_order_placed_successfully).Text.Equals("Your order has been received.");
+            return Driver.WebDriver.FindElement(_order_placed_successfully).Displayed;
         }
 
     }
