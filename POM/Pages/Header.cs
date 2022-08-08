@@ -27,13 +27,11 @@ namespace POM.Pages
         public void ClickLogo()
         {
             Driver.WebDriver.FindElement(_logo).Click();
-            WaitHelpers.WaitUntilDocumentReady();
         }
 
         public void ClickOnWomenCategory()
         {
             Driver.WebDriver.FindElements(_category_list).ToArray()[1].Click();
-            WaitHelpers.WaitUntilDocumentReady();
         }
 
         public void Search(string SearchString)

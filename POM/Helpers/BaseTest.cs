@@ -18,7 +18,6 @@ namespace POM.Helpers
         {
             Driver.WebDriver = new ChromeDriver(".\\Drivers");
             Driver.WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
-            WaitHelpers.WaitUntilDocumentReady();
         }
 
         [TearDown]

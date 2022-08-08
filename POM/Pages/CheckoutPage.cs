@@ -30,6 +30,7 @@ namespace POM.Pages
         private readonly By _billing_continue_button = By.CssSelector("#billing-buttons-container .button");
 
         private readonly By _shipping_edit_button = By.CssSelector("#opc-shipping .step-title");
+        private readonly By _shipping_edit_link = By.CssSelector("#opc-shipping .step-title a");
         private readonly By _shipping_first_name_text = By.CssSelector("[id=\"shipping:firstname\"]");
         private readonly By _shipping_last_name_text = By.CssSelector("[id=\"shipping:lastname\"]");
         private readonly By _shipping_address_1_text = By.CssSelector("[id=\"shipping:street1\"]");
@@ -159,6 +160,7 @@ namespace POM.Pages
 
         public void FillOutShippingForm()
         {
+            WaitHelpers.WaitUntilElementVisible(_shipping_edit_link);
             ClickOnShippingEdit();
             ShippingFillNames("first", "last");
             ShippingFillAddress("address", "city");
@@ -182,17 +184,20 @@ namespace POM.Pages
 
         public void FillShippingMethod()
         {
+            WaitHelpers.WaitUntilElementVisible(_shipping_method_continue_button);
             SelectShippingMethod("free");
             ShippingMethodClickOnContinue();
         }
 
         public void PaymentClickOnContinue()
         {
+            WaitHelpers.WaitUntilElementVisible(_payment_continue_button);
             Driver.WebDriver.FindElement(_payment_continue_button).Click();
         }
 
         public void ClickOnPlaceOrder()
         {
+            WaitHelpers.WaitUntilElementVisible(_review_place_order_button);
             Driver.WebDriver.FindElement(_review_place_order_button).Click();
         }
 
