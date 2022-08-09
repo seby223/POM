@@ -19,8 +19,17 @@ namespace POM.Tests
         }
 
         [Test]
-        public void ReviewTest()
+        public void ReviewNewProductTest()
         {
+            Pages.HomePage.ClickOnNewProduct(Faker.RandomNumber.Next(0,4));
+
+            Pages.ProductDetailsPage.ClickOnReviewButton();
+
+            Pages.ProductDetailsPage.ReviewFillIn();
+
+            Pages.ProductDetailsPage.ReviewClickSubmit();
+
+            Pages.ProductDetailsPage.ReviewSuccess().Should().BeTrue();
 
         }
     }

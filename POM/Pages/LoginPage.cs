@@ -17,7 +17,7 @@ namespace POM.Pages
 
         public void LogIn(string email, string password)
         {
-            WaitHelpers.WaitUntilElementVisible(_login_button);
+            WaitHelper.WaitUntilElementVisible(_login_button);
             Driver.WebDriver.FindElement(_email_text).SendKeys(email);
             Driver.WebDriver.FindElement(_password_text).SendKeys(password);
             Driver.WebDriver.FindElement(_login_button).Click();

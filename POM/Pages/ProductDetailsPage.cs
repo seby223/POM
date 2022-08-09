@@ -2,6 +2,7 @@
 using System.Linq;
 using POM.Helpers;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace POM.Pages
 {
@@ -30,6 +31,7 @@ namespace POM.Pages
         private readonly By _zoom_view = By.CssSelector(".zoomWindow");
         private readonly By _add_whislist_button = By.CssSelector(".add-to-links li:first-child");
         private readonly By _add_compare_button = By.CssSelector(".add-to-links li:last-child");
+        private readonly By _review_success_message = By.CssSelector(".success-msg");
 
         #endregion
 
@@ -69,9 +71,16 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_review_bottom_button).Click();
         }
 
-        public bool IsTopReviewDisplayed()
+        private bool IsTopReviewDisplayed()
         {
-            return Driver.WebDriver.FindElement(_review_top_button).Displayed;
+            try
+            {
+                return Driver.WebDriver.FindElement(_review_top_button).Displayed;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void ClickOnReviewButton()
@@ -94,6 +103,57 @@ namespace POM.Pages
             new SelectElement(Driver.WebDriver.FindElement(_custom_option_monogram_select)).SelectByIndex(Value);
         }
 
+        public void ReviewSelectProductQuality(int value)
+        {
+            Driver.WebDriver.FindElements(_review_quality_list)[value].Click();
+        }
 
+        public void ReviewSelectProductPrice(int value)
+        {
+            Driver.WebDriver.FindElements(_review_price_list)[value].Click();
+        }
+
+        public void ReviewSelectProductValue(int value)
+        {
+            Driver.WebDriver.FindElements(_review_value_list)[value].Click();
+        }
+
+        public void ReviewFillThoughts(string value)
+        {
+            Driver.WebDriver.FindElement(_review_thoughts_field).SendKeys(value);
+        }
+
+        public void ReviewFillSummary(string value)
+        {
+            Driver.WebDriver.FindElement (_review_summary_field).SendKeys(value);
+        }
+
+        public void ReviewFillNick(string value)
+        {
+            Driver.WebDriver.FindElement(_review_nickname_field).SendKeys(value);
+        }
+
+        public void ReviewFillIn()
+        {
+            WaitHelper.WaitUntilElementVisible(_review_submit_button);
+
+            ReviewSelectProductQuality(Faker.RandomNumber.Next(0, 4));
+            ReviewSelectProductPrice(Faker.RandomNumber.Next(0, 4));
+            ReviewSelectProductValue(Faker.RandomNumber.Next(0, 4));
+
+            ReviewFillThoughts(Faker.Name.FullName());
+            ReviewFillSummary(Faker.Name.FullName());
+            ReviewFillNick(Faker.Name.First());
+        }
+
+        public void ReviewClickSubmit()
+        {
+            Driver.WebDriver.FindElement(_review_submit_button).Click();
+        }
+
+        public bool ReviewSuccess()
+        {
+            return Driver.WebDriver.FindElement(_review_success_message).Displayed;
+        }
     }
 }
