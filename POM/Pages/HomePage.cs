@@ -4,7 +4,7 @@ using POM.Helpers;
 
 namespace POM.Pages
 {
-    public class HomePage : Header
+    public class HomePage
     {
 
         public readonly string Url = "http://qa2magento.dev.evozon.com/";

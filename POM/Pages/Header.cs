@@ -39,5 +39,11 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_search_field).SendKeys(SearchString);
             Driver.WebDriver.FindElement(_search_button).Click();
         }
+        public void GoToLogIn()
+        {
+            Driver.WebDriver.FindElement(_account).Click();
+            //WaitHelpers.WaitUntilElementVisible(_account_links_list);
+            Driver.WebDriver.FindElements(_account_links_list).Last().Click();
+        }
     }
 }

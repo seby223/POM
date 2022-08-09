@@ -26,7 +26,7 @@ namespace POM.Tests
         [Test]
         public void AddToCartButtonIsDisplayed()
         {
-            Pages.HomePage.Search("Chelsea Tee");
+            Pages.Header.Search("Chelsea Tee");
 
             Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
 

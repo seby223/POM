@@ -5,7 +5,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace POM.Pages
 {
-    public class ProductDetailsPage : Header
+    public class ProductDetailsPage
     {
         #region Selectors
 

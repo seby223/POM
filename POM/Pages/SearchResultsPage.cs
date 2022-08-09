@@ -4,7 +4,7 @@ using POM.Helpers;
 
 namespace POM.Pages
 {
-    public class SearchResultsPage : Header
+    public class SearchResultsPage
     {
         #region Selectors
 

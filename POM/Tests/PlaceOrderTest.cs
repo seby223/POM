@@ -11,7 +11,7 @@ namespace POM.Tests
         [Test]
         public void Order1Item()
         {
-            Pages.HomePage.Search("swiss");
+            Pages.Header.Search("swiss");
 
             Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
 

@@ -4,7 +4,7 @@ using POM.Helpers;
 
 namespace POM.Pages
 {
-    public class CartPage : Header
+    public class CartPage
     {
         #region Selectors
 
