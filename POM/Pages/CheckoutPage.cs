@@ -11,7 +11,7 @@ namespace POM.Pages
 
         private readonly By _guest_option = By.CssSelector("[id=\"login:guest\"]");
         private readonly By _guest_continue_button = By.CssSelector("#onepage-guest-register-button");
-
+        
         private readonly By _billing_first_name_text = By.CssSelector("#billing\\:firstname");
         private readonly By _billing_middle_name_text = By.CssSelector("#billing\\:middlename");
         private readonly By _billing_last_name_text = By.CssSelector("#billing\\:lastname");
@@ -28,7 +28,7 @@ namespace POM.Pages
         private readonly By _billing_fax_text = By.CssSelector("[id=\"billing:fax\"]");
         private readonly By _billing_same_address_radio_list = By.CssSelector("[name=\"billing[use_for_shipping]\"]");
         private readonly By _billing_continue_button = By.CssSelector("#billing-buttons-container .button");
-
+        
         private readonly By _shipping_edit_button = By.CssSelector("#opc-shipping .step-title");
         private readonly By _shipping_edit_link = By.CssSelector("#opc-shipping .step-title a");
         private readonly By _shipping_first_name_text = By.CssSelector("[id=\"shipping:firstname\"]");
@@ -45,11 +45,13 @@ namespace POM.Pages
         private readonly By _shipping_method_free_radio = By.CssSelector("#s_method_freeshipping_freeshipping");
         private readonly By _shipping_method_flat_radio = By.CssSelector("#s_method_flatrate_flatrate");
         private readonly By _shipping_method_continue_button = By.CssSelector("#shipping-method-buttons-container .button");
-
+        
         private readonly By _payment_continue_button = By.CssSelector("#payment-buttons-container .button");
+        
         private readonly By _review_place_order_button = By.CssSelector(".button.btn-checkout");
-
+        
         private readonly By _order_placed_successfully = By.CssSelector(".page-title h1");
+        
         #endregion
 
         public void SelectGuestOption()

@@ -32,5 +32,19 @@ namespace POM.Tests
             Pages.ProductDetailsPage.ReviewSuccess().Should().BeTrue();
 
         }
+
+        [Test]
+        public void AddToCartButtonDisabledForOutOfStockItems()
+        {
+            Pages.Header.Search("elizabeth");
+
+            Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
+
+            Pages.ProductDetailsPage.SelectColorFromAll(0);
+
+            Pages.ProductDetailsPage.SelectSizeFromAll(0);
+
+            Pages.ProductDetailsPage.IsAddToCartButtonEnabled().Should().BeFalse();
+        }
     }
 }

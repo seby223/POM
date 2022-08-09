@@ -11,8 +11,10 @@ namespace POM.Pages
         #region Selectors
 
         private readonly By _addToCartButton = By.CssSelector(".btn-cart:not(#map-popup-button)");
-        private readonly By _colors_list = By.CssSelector("#configurable_swatch_color>li:not(.not-available)");
-        private readonly By _sizes_list = By.CssSelector("#configurable_swatch_size>li:not(.not-available)");
+        private readonly By _available_colors_list = By.CssSelector("#configurable_swatch_color>li:not(.not-available)");
+        private readonly By _colors_list = By.CssSelector("#configurable_swatch_color>li");
+        private readonly By _available_sizes_list = By.CssSelector("#configurable_swatch_size>li:not(.not-available)");
+        private readonly By _sizes_list = By.CssSelector("#configurable_swatch_size>li");
         private readonly By _quantity = By.CssSelector("#qty");
         private readonly By _thumbnails = By.CssSelector(".product-image-thumbs >li");
         private readonly By _details = By.CssSelector(".toggle-tabs > li");
@@ -40,19 +42,34 @@ namespace POM.Pages
             return Driver.WebDriver.FindElement(_addToCartButton).Displayed;
         }
 
+        public bool IsAddToCartButtonEnabled()
+        {
+            return Driver.WebDriver.FindElement(_addToCartButton).Enabled;
+        }
+
         public void ClickOnAddToCart()
         {
             Driver.WebDriver.FindElement(_addToCartButton).Click();
         }
 
-        public void SelectColor(int Value) 
+        public void SelectColorFromAll(int Value)
         {
             Driver.WebDriver.FindElements(_colors_list).ToArray()[Value].Click();
         }
 
-        public void SelectSize(int Value)
+        public void SelectColor(int Value) 
+        {
+            Driver.WebDriver.FindElements(_available_colors_list).ToArray()[Value].Click();
+        }
+
+        public void SelectSizeFromAll(int Value)
         {
             Driver.WebDriver.FindElements(_sizes_list).ToArray()[Value].Click();
+        }
+
+        public void SelectSize(int Value)
+        {
+            Driver.WebDriver.FindElements(_available_sizes_list).ToArray()[Value].Click();
         }
 
         public void SelectQuantity(int Value)
