@@ -16,8 +16,8 @@ namespace POM.Helpers
         [SetUp]
         public void Setup()
         {
-            Driver.WebDriver = new ChromeDriver(".\\Drivers");
-            Driver.WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
+            Driver.WebDriver = new ChromeDriver(Constants.DRIVERPATH);
+            Driver.WebDriver.Navigate().GoToUrl(Constants.WEBSITE);
         }
 
         [TearDown]

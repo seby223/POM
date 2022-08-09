@@ -1,7 +1,7 @@
 ﻿using POM.Helpers;
 using NUnit.Framework;
 using FluentAssertions;
-using System.Threading;
+
 
 namespace POM.Tests
 {
@@ -22,17 +22,12 @@ namespace POM.Tests
             Pages.CheckoutPage.SelectGuestOption();
             
             Pages.CheckoutPage.FillOutBillingForm();
-            //WaitHelpers.WaitUntilDocumentReady();
-            //Thread.Sleep(10000);
 
             Pages.CheckoutPage.FillOutShippingForm();
-            //Thread.Sleep(5000);
 
             Pages.CheckoutPage.FillShippingMethod();
-            //Thread.Sleep(5000);
 
             Pages.CheckoutPage.PaymentClickOnContinue();
-            //Thread.Sleep(5000);
 
             Pages.CheckoutPage.ClickOnPlaceOrder();
 
