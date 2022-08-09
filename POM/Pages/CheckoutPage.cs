@@ -162,10 +162,10 @@ namespace POM.Pages
         {
             WaitHelper.WaitUntilElementVisible(_shipping_edit_link);
             ClickOnShippingEdit();
-            ShippingFillNames("first", "last");
-            ShippingFillAddress("address", "city");
+            ShippingFillNames(Faker.Name.First(), Faker.Name.Last());
+            ShippingFillAddress(Faker.Address.StreetAddress(), Faker.Address.City());
             ShippingFillCountrySate("US","3");
-            ShippingFillZipPhone("123123","1231231231");
+            ShippingFillZipPhone(Faker.RandomNumber.Next().ToString(),Faker.RandomNumber.Next().ToString());
             ShippingClickOnContinue();
         }
 
