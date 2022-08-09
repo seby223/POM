@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Linq;
 using POM.Helpers;
+using System.Collections.Generic;
 
 namespace POM.Pages
 {
@@ -44,6 +45,13 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_account).Click();
             //WaitHelpers.WaitUntilElementVisible(_account_links_list);
             Driver.WebDriver.FindElements(_account_links_list).Last().Click();
+        }
+
+        public void GoToRegister()
+        {
+            Driver.WebDriver.FindElement(_account).Click();
+            IWebElement[] x = Driver.WebDriver.FindElements(_account_links_list).ToArray();
+            x[x.Length - 2].Click();
         }
     }
 }

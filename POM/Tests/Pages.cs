@@ -15,6 +15,7 @@ namespace POM.Tests
         public static Header Header => InitPage(new Header());
         public static LoginPage LoginPage => InitPage(new LoginPage());
         public static AccountPage AccountPage => InitPage(new AccountPage());
+        public static RegisterPage RegisterPage => InitPage(new RegisterPage());
         public static T InitPage<T> (T page)
         {
             PageFactory.InitElements (Driver.WebDriver, page);

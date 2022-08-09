@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POM.Helpers
+﻿namespace POM.Helpers
 {
     public class Constants
     {
@@ -16,6 +10,7 @@ namespace POM.Helpers
         public const string BADACCOUNTEMAIL = "randomstring@yahoo.com";
         public const string BADACCOUNTPASSWORD = "badbad";
         public const string ASDACCOUNTHELLOMESSAGE = "Hello, FirstName MiddleName LastName!";
+        public const string REGISTERSUCCESSMESSAGE = "Thank you for registering with Madison Island.";
 
     }
 }

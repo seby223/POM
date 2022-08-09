@@ -31,5 +31,17 @@ namespace POM.Tests
 
             Pages.LoginPage.VerifyErrorMessage().Should().BeTrue();
         }
+
+        [Test]
+        public void RegisterTest()
+        {
+            Pages.Header.GoToRegister();
+
+            Pages.RegisterPage.FillInRegisterForm();
+
+            Pages.RegisterPage.ClickOnRegister();
+
+            Pages.AccountPage.VerifyRegisterMessage(Constants.REGISTERSUCCESSMESSAGE);
+        }
     }
 }
