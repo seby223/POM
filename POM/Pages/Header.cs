@@ -61,6 +61,7 @@ namespace POM.Pages
         public string GetProductCount()
         {
             return Driver.WebDriver.FindElement(_minicartCount).Text;
+        }
         public void HoverCategory()
         {
             Actions actions = new Actions(Driver.WebDriver);
