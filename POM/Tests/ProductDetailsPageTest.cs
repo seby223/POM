@@ -46,5 +46,24 @@ namespace POM.Tests
 
             Pages.ProductDetailsPage.IsAddToCartButtonEnabled().Should().BeFalse();
         }
+
+        [Test]
+        public void AddToCartPageTest()
+        {
+            Pages.Header.HoverCategory();
+
+            Pages.ProductCategoryPage.SelectFromProductList();
+
+            Pages.ProductDetailsPage.SelectColor(0);
+
+            Pages.ProductDetailsPage.SelectSize(0);
+
+            Pages.ProductDetailsPage.SelectQuantity(5);
+
+            Pages.ProductDetailsPage.ClickOnAddToCart();
+
+            Assert.True(Pages.CartPage.VerifyShoppingCartProduct());
+            
+        }
     }
 }
