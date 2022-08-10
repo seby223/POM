@@ -74,7 +74,10 @@ namespace POM.Pages
 
         public void SelectQuantity(int Value)
         {
-            Driver.WebDriver.FindElement(_quantity).SendKeys(Value.ToString());
+
+            var quantity = Driver.WebDriver.FindElement(_quantity);
+            quantity.Clear();
+            quantity.SendKeys(Value.ToString());
         }
 
         public void ClickOnThumbnails(int Value)

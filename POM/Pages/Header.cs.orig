@@ -23,8 +23,11 @@ namespace POM.Pages
         private readonly By _minicart_subtotal = By.CssSelector(".subtotal .price");
         private readonly By _minicart_add_button = By.CssSelector(".button.checkout-button");
         private readonly By _minicart_cart_button = By.CssSelector(".cart-link");
+<<<<<<< HEAD
         private readonly By _minicartCount = By.CssSelector(".count");
+=======
         private readonly By _topsAndBlouses = By.CssSelector(".level1.nav-1-2");
+>>>>>>> origin/Denisa
 
         #endregion
 
@@ -57,10 +60,12 @@ namespace POM.Pages
             x[x.Length - 2].Click();
         }
 
+<<<<<<< HEAD
 
         public string GetProductCount()
         {
             return Driver.WebDriver.FindElement(_minicartCount).Text;
+=======
         public void HoverCategory()
         {
             Actions actions = new Actions(Driver.WebDriver);
@@ -69,6 +74,7 @@ namespace POM.Pages
             actions.MoveToElement(Driver.WebDriver.FindElement(_topsAndBlouses));
 
             actions.Click().Build().Perform();
+>>>>>>> origin/Denisa
         }
     }
 }
