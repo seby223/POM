@@ -63,6 +63,9 @@ namespace POM.Tests
 
             Pages.CheckoutShippingMethodPage.FillOutForm();
 
+            Pages.CheckoutPaymentPage.PaymentClickOnContinue();
+
+            Pages.che
         }
     }
 }
