@@ -21,17 +21,22 @@ namespace POM.Tests
 
             Pages.CheckoutPage.SelectGuestOption();
             
-            Pages.CheckoutPage.FillOutBillingForm();
+            //Pages.CheckoutPage.FillOutBillingForm();
+            Pages.CheckoutBillingPage.FillOutForm();
 
-            Pages.CheckoutPage.FillOutShippingForm();
+            //Pages.CheckoutPage.FillOutShippingForm();
+            Pages.CheckoutShippingPage.FillOutForm();
 
-            Pages.CheckoutPage.FillShippingMethod();
+            //Pages.CheckoutPage.FillShippingMethod();
+            Pages.CheckoutShippingMethodPage.FillOutForm();
 
-            Pages.CheckoutPage.PaymentClickOnContinue();
+            //Pages.CheckoutPage.PaymentClickOnContinue();
+            Pages.CheckoutPaymentPage.PaymentClickOnContinue();
 
-            Pages.CheckoutPage.ClickOnPlaceOrder();
+            //Pages.CheckoutPage.ClickOnPlaceOrder();
+            Pages.CheckoutReviewOrderPage.ClickOnPlaceOrder();
 
-            Pages.CheckoutPage.OrderSuccess().Should().BeTrue();
+            Pages.CheckoutReviewOrderPage.OrderSuccess().Should().BeTrue();
 
         }
     }
