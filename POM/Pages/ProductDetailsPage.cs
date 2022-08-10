@@ -175,5 +175,11 @@ namespace POM.Pages
         {
             return Driver.WebDriver.FindElement(_review_success_message).Displayed;
         }
+        
+        public void AddToWishlist()
+        {
+            Driver.WebDriver.FindElement(_add_whislist_button).Click();
+        }
     }
 }
+    
