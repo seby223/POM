@@ -43,6 +43,8 @@ namespace POM.Tests
 
             Pages.AccountPage.VerifyRegisterMessage(Constants.REGISTERSUCCESSMESSAGE).Should().BeTrue();
         }
+
+       
     }
 }
 //ceva
