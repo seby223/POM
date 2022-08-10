@@ -65,7 +65,9 @@ namespace POM.Tests
 
             Pages.CheckoutPaymentPage.PaymentClickOnContinue();
 
-            Pages.che
+            Pages.CheckoutReviewOrderPage.ClickOnPlaceOrder();
+
+            Pages.CheckoutReviewOrderPage.OrderSuccess().Should().BeTrue();
         }
     }
 }
