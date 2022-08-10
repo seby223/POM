@@ -2,6 +2,7 @@
 using System.Linq;
 using POM.Helpers;
 using System.Collections.Generic;
+using OpenQA.Selenium.Interactions;
 
 namespace POM.Pages
 {
@@ -22,6 +23,7 @@ namespace POM.Pages
         private readonly By _minicart_subtotal = By.CssSelector(".subtotal .price");
         private readonly By _minicart_add_button = By.CssSelector(".button.checkout-button");
         private readonly By _minicart_cart_button = By.CssSelector(".cart-link");
+        private readonly By _minicartCount = By.CssSelector(".count");
 
         #endregion
 
@@ -52,6 +54,12 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_account).Click();
             IWebElement[] x = Driver.WebDriver.FindElements(_account_links_list).ToArray();
             x[x.Length - 2].Click();
+        }
+
+
+        public string GetProductCount()
+        {
+            return Driver.WebDriver.FindElement(_minicartCount).Text;
         }
     }
 }
