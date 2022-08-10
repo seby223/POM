@@ -9,7 +9,7 @@ namespace POM.Tests
     public class PlaceOrderTest : BaseTest
     {
         [Test]
-        public void Order1Item()
+        public void Order1ItemGuest()
         {
             Pages.Header.Search("swiss");
 
@@ -37,6 +37,31 @@ namespace POM.Tests
             Pages.CheckoutReviewOrderPage.ClickOnPlaceOrder();
 
             Pages.CheckoutReviewOrderPage.OrderSuccess().Should().BeTrue();
+
+        }
+
+        [Test]
+        public void Order1ItemClient()
+        {
+            Pages.Header.GoToLogIn();
+
+            Pages.LoginPage.LogIn(Constants.GOODACCOUNTNOITEMSEMAIL, Constants.GOODACCOUNTNOITEMSPASS);
+
+            Pages.Header.Search("swiss");
+
+            Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
+
+            Pages.ProductDetailsPage.ClickOnAddToCart();
+
+            Pages.CartPage.ClickOnCheckoutButton();
+
+            Pages.CheckoutBillingPage.SelectSameShippingAddress(true);
+
+            Pages.CheckoutBillingPage.ClickOnContinue();
+
+            Pages.CheckoutShippingPage.SameAddressClientContinue();
+
+            Pages.CheckoutShippingMethodPage.FillOutForm();
 
         }
     }

@@ -11,6 +11,8 @@
         public const string BADACCOUNTPASSWORD = "badbad";
         public const string ASDACCOUNTHELLOMESSAGE = "Hello, FirstName MiddleName LastName!";
         public const string REGISTERSUCCESSMESSAGE = "Thank you for registering with Madison Island.";
+        public const string GOODACCOUNTNOITEMSEMAIL = "qwe@yahoo.com";
+        public const string GOODACCOUNTNOITEMSPASS = "qweqwe";
 
     }
 }
