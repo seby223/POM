@@ -41,7 +41,7 @@ namespace POM.Tests
 
             Pages.RegisterPage.ClickOnRegister();
 
-            Pages.AccountPage.VerifyRegisterMessage(Constants.REGISTERSUCCESSMESSAGE);
+            Pages.AccountPage.VerifyRegisterMessage(Constants.REGISTERSUCCESSMESSAGE).Should().BeTrue();
         }
     }
 }
