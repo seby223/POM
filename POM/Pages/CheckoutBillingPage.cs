@@ -2,7 +2,6 @@
 using System.Linq;
 using POM.Helpers;
 using OpenQA.Selenium.Support.UI;
-using POM.Data;
 
 namespace POM.Pages
 {
@@ -99,7 +98,7 @@ namespace POM.Pages
             WaitHelper.WaitUntilElementVisible(_continueButton);
             FillFirstName(checkoutInfo.FirstName);
             FillLastName(checkoutInfo.LastName);
-            FillEmail(checkoutInfo.email);
+            FillEmail(checkoutInfo.Email);
             FillAddress(checkoutInfo.Address1);
             FillCity(checkoutInfo.City);
             FillCountry(checkoutInfo.Country);

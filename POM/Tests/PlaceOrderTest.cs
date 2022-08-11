@@ -1,7 +1,6 @@
 ﻿using POM.Helpers;
 using NUnit.Framework;
 using FluentAssertions;
-using POM.Data;
 
 namespace POM.Tests
 {
@@ -12,7 +11,7 @@ namespace POM.Tests
         {
             FirstName = Faker.Name.First(),
             LastName = Faker.Name.Last(),
-            email = "asd@yahoo.com",
+            Email = "asd@yahoo.com",
             Address1 = Faker.Address.StreetAddress(),
             City = Faker.Address.City(),
             Zip = Faker.RandomNumber.Next().ToString(),

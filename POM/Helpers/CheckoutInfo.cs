@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POM.Data
+namespace POM.Helpers
 {
     public class CheckoutInfo
     {
@@ -12,7 +12,7 @@ namespace POM.Data
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Company { get; set; }
-        public string email { get; set; }
+        public string Email { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
@@ -22,5 +22,8 @@ namespace POM.Data
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string ShippingMethod { get; set; }
+        public string Category { get; set; }
+        public string Product { get; set; }
+
     }
 }

@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using POM.Helpers;
 using OpenQA.Selenium.Support.UI;
-using POM.Data;
 
 namespace POM.Pages
 {
