@@ -95,6 +95,7 @@ namespace POM.Pages
 
         public void FillOutForm()
         {
+<<<<<<< HEAD
             WaitHelper.WaitUntilElementVisible(_continueButton);
             FillFirstName("first");
             FillLastName("last");
@@ -105,6 +106,15 @@ namespace POM.Pages
             FillState("3");
             FillZip("123123");
             FillPhone("1231231231");
+            SelectShippingAddress(true);
+=======
+            WaitHelper.WaitUntilElementVisible(_continue_button);
+            FillNames("first", "last");
+            FillAddress("asd@yahoo.com", "asd home", "asd city");
+            FillCountryandState("US", "3");
+            FillZipPhone("123123", "1231231231");
+            SelectSameShippingAddress(true);
+>>>>>>> 0bec5056e41592dded36317f5e2404b18af541ee
             ClickOnContinue();
         }
     }

@@ -8,7 +8,7 @@ namespace POM.Tests
     public class AccountTest : BaseTest
     {
         [Test]
-        [TestCase(Constants.GOODACCOUNTEMAIL, Constants.GOODACCOUNTPASSWORD, Constants.ASDACCOUNTHELLOMESSAGE)]
+        [TestCase(Constants.GoodAccountEmail, Constants.GoodAccountPassword, Constants.AsdAccountHelloMessage)]
         
         public void LoginPositive(string email, string pass, string message)
         {
@@ -20,9 +20,9 @@ namespace POM.Tests
         }
 
         [Test]
-        [TestCase(Constants.GOODACCOUNTEMAIL, Constants.BADACCOUNTPASSWORD)]
-        [TestCase(Constants.BADACCOUNTEMAIL, Constants.GOODACCOUNTPASSWORD)]
-        [TestCase(Constants.BADACCOUNTEMAIL, Constants.BADACCOUNTPASSWORD)]
+        [TestCase(Constants.GoodAccountEmail, Constants.BadAccountPassword)]
+        [TestCase(Constants.BadAccountEmail, Constants.GoodAccountPassword)]
+        [TestCase(Constants.BadAccountEmail, Constants.BadAccountPassword)]
         public void LoginNegative(string email, string pass)
         {
             Pages.Header.GoToLogIn();
@@ -41,7 +41,7 @@ namespace POM.Tests
 
             Pages.RegisterPage.ClickOnRegister();
 
-            Pages.AccountPage.VerifyRegisterMessage(Constants.REGISTERSUCCESSMESSAGE).Should().BeTrue();
+            Pages.AccountPage.VerifyRegisterMessage(Constants.RegisterSuccesssMessage).Should().BeTrue();
         }
 
        

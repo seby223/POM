@@ -100,7 +100,7 @@ namespace POM.Pages
             FillLastName("last");
             FillEmail("asd@yahoo.com");
             FillAddress("asd home");
-            FillCity("asd city");
+                        FillCity("asd city");
             FillCountry("US");
             FillState("3");
             FillZip("123123");
