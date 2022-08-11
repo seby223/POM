@@ -26,10 +26,10 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_continueButton).Click();
         }
 
-        public void FillOutForm()
+        public void FillOutForm(CheckoutInfo checkoutInfo)
         {
             WaitHelper.WaitUntilElementVisible(_continueButton);
-            SelectShippingMethod("free");
+            SelectShippingMethod(checkoutInfo.ShippingMethod.ToString());
             ClickOnContinue();
         }
     }

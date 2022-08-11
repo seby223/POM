@@ -39,7 +39,7 @@ namespace POM.Pages
             var alertMessage = Driver.WebDriver.SwitchTo().Alert();
             alertMessage.Accept();
 
-            Thread.Sleep(10000);
+            WaitHelper.WaitUntilElementVisible(_emptyWishlist);
         }
     }
 }
