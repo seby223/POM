@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System.Linq;
 using POM.Helpers;
 
 namespace POM.Pages
@@ -8,7 +7,7 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _checkout_button = By.CssSelector(".checkout-types.bottom .button");
+        private readonly By _checkoutButton = By.CssSelector(".checkout-types.bottom .button");
 
         private readonly By _shoppingCartProductList = By.CssSelector("#shopping-cart-table tbody > tr");
 
@@ -16,7 +15,7 @@ namespace POM.Pages
 
         public void ClickOnCheckoutButton()
         {
-            Driver.WebDriver.FindElement(_checkout_button).Click();
+            Driver.WebDriver.FindElement(_checkoutButton).Click();
         }
         public bool VerifyShoppingCartProduct()
         {
