@@ -9,79 +9,102 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _first_name_text = By.CssSelector("#billing\\:firstname");
-        private readonly By _middle_name_text = By.CssSelector("#billing\\:middlename");
-        private readonly By _last_name_text = By.CssSelector("#billing\\:lastname");
-        private readonly By _company_text = By.CssSelector("[id=\"billing:company\"]");
-        private readonly By _email_text = By.CssSelector("[id=\"billing:email\"]");
-        private readonly By _address_1_text = By.CssSelector("[id=\"billing:street1\"]");
-        private readonly By _address_2_text = By.CssSelector("[id=\"billing:street2\"]");
-        private readonly By _city_text = By.CssSelector("[id=\"billing:city\"]");
-        private readonly By _state_select = By.CssSelector("[id=\"billing:region_id\"]");
-        private readonly By _state_text = By.CssSelector("[id=\"billing:region\"]");
-        private readonly By _postcode_text = By.CssSelector("[id=\"billing:postcode\"]");
-        private readonly By _country_select = By.CssSelector("[id=\"billing:country_id\"]");
-        private readonly By _telephone_text = By.CssSelector("[id=\"billing:telephone\"]");
-        private readonly By _fax_text = By.CssSelector("[id=\"billing:fax\"]");
-        private readonly By _same_address_radio_list = By.CssSelector("[name=\"billing[use_for_shipping]\"]");
-        private readonly By _continue_button = By.CssSelector("#billing-buttons-container .button");
+        private readonly By _firstNameText = By.CssSelector("#billing\\:firstname");
+        private readonly By _lastNameText = By.CssSelector("#billing\\:lastname");
+        private readonly By _emailText = By.CssSelector("[id=\"billing:email\"]");
+        private readonly By _addressText = By.CssSelector("[id=\"billing:street1\"]");
+        private readonly By _cityText = By.CssSelector("[id=\"billing:city\"]");
+        private readonly By _stateSelect = By.CssSelector("[id=\"billing:region_id\"]");
+        private readonly By _stateText = By.CssSelector("[id=\"billing:region\"]");
+        private readonly By _postcodeText = By.CssSelector("[id=\"billing:postcode\"]");
+        private readonly By _countrySelect = By.CssSelector("[id=\"billing:country_id\"]");
+        private readonly By _telephoneText = By.CssSelector("[id=\"billing:telephone\"]");
+        private readonly By _sameAddressRadioList = By.CssSelector("[name=\"billing[use_for_shipping]\"]");
+        private readonly By _continueButton = By.CssSelector("#billing-buttons-container .button");
 
         #endregion
 
         public void SelectShippingAddress(bool a)
         {
             if (a)
-                Driver.WebDriver.FindElements(_same_address_radio_list).First().Click();
+                Driver.WebDriver.FindElements(_sameAddressRadioList).First().Click();
             else
-                Driver.WebDriver.FindElements(_same_address_radio_list).Last().Click();
+                Driver.WebDriver.FindElements(_sameAddressRadioList).Last().Click();
         }
 
-        public void FillNames(string first, string last)
+        public void FillFirstName(string first)
         {
-            Driver.WebDriver.FindElement(_first_name_text).SendKeys(first);
-            //Driver.WebDriver.FindElement(_billing_middle_name_text).SendKeys(middle);
-            Driver.WebDriver.FindElement(_last_name_text).SendKeys(last);
+            Driver.WebDriver.FindElement(_firstNameText).SendKeys(first);
+
         }
 
-        public void FillAddress(string email, string address, string city)
+        public void FillLastName(string last)
         {
-            Driver.WebDriver.FindElement(_email_text).SendKeys(email);
-            Driver.WebDriver.FindElement(_address_1_text).SendKeys(address);
-            Driver.WebDriver.FindElement(_city_text).SendKeys(city);
+            Driver.WebDriver.FindElement(_lastNameText).SendKeys(last);
+        }
+
+        public void FillEmail(string email)
+        {
+            Driver.WebDriver.FindElement(_emailText).SendKeys(email);
+        }
+
+        public void FillAddress(string address)
+        {
+            Driver.WebDriver.FindElement(_addressText).SendKeys(address);
+        }
+
+        public void FillCity(string city)
+        {
+            Driver.WebDriver.FindElement(_cityText).SendKeys(city);
         }
 
         private bool IsStateSelectDisplayed()
         {
-            return Driver.WebDriver.FindElement(_state_select).Displayed;
+            return Driver.WebDriver.FindElement(_stateSelect).Displayed;
         }
 
-        public void FillCountryandState(string country, string state)
+        public void FillCountry(string country)
         {
-            new SelectElement(Driver.WebDriver.FindElement(_country_select)).SelectByValue(country);
+            new SelectElement(Driver.WebDriver.FindElement(_countrySelect)).SelectByValue(country);
+
+        }
+
+        public void FillState(string state)
+        {
+
             if (IsStateSelectDisplayed() == true)
-                new SelectElement(Driver.WebDriver.FindElement(_state_select)).SelectByValue(state);
+                new SelectElement(Driver.WebDriver.FindElement(_stateSelect)).SelectByValue(state);
             else
-                Driver.WebDriver.FindElement(_state_text).SendKeys(state);
+                Driver.WebDriver.FindElement(_stateText).SendKeys(state);
         }
 
-        public void FillZipPhone(string postcode, string telephone)
+        public void FillZip(string postcode)
         {
-            Driver.WebDriver.FindElement(_postcode_text).SendKeys(postcode);
-            Driver.WebDriver.FindElement(_telephone_text).SendKeys(telephone);
+            Driver.WebDriver.FindElement(_postcodeText).SendKeys(postcode);
+        }
+
+        public void FillPhone(string telephone)
+        {
+            Driver.WebDriver.FindElement(_telephoneText).SendKeys(telephone);
         }
 
         public void ClickOnContinue()
         {
-            Driver.WebDriver.FindElement(_continue_button).Click();
+            Driver.WebDriver.FindElement(_continueButton).Click();
         }
 
         public void FillOutForm()
         {
-            WaitHelper.WaitUntilElementVisible(_continue_button);
-            FillNames("first", "last");
-            FillAddress("asd@yahoo.com", "asd home", "asd city");
-            FillCountryandState("US", "3");
-            FillZipPhone("123123", "1231231231");
+            WaitHelper.WaitUntilElementVisible(_continueButton);
+            FillFirstName("first");
+            FillLastName("last");
+            FillEmail("asd@yahoo.com");
+            FillAddress("asd home");
+            FillCity("asd city");
+            FillCountry("US");
+            FillState("3");
+            FillZip("123123");
+            FillPhone("1231231231");
             SelectShippingAddress(true);
             ClickOnContinue();
         }

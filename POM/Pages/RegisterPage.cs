@@ -25,32 +25,32 @@ namespace POM.Pages
 
         }
 
-        public void FillMiddleName( string middle)
+        public void FillMiddleName(string middle)
         {
-            
+
             var middleName = Driver.WebDriver.FindElement(_middle_name_field);
             middleName.Clear();
             middleName.SendKeys(middle);
         }
 
-        public void FillLastName( string last)
+        public void FillLastName(string last)
         {
 
-            var lastName=Driver.WebDriver.FindElement(_last_name_field);
+            var lastName = Driver.WebDriver.FindElement(_last_name_field);
             lastName.Clear();
             lastName.SendKeys(last);
         }
 
         public void FillEmail(string email)
         {
-            var mail=Driver.WebDriver.FindElement(_email_field);
+            var mail = Driver.WebDriver.FindElement(_email_field);
             mail.Clear();
             mail.SendKeys(email);
         }
 
         public void FillPassword(string password)
         {
-            var pass=Driver.WebDriver.FindElement(_password_field);
+            var pass = Driver.WebDriver.FindElement(_password_field);
             pass.Clear();
             pass.SendKeys(password);
 
@@ -58,8 +58,8 @@ namespace POM.Pages
 
         public void FillConfirmPassword(string password)
         {
-            
-            var pass=Driver.WebDriver.FindElement(_confirm_password_field);
+
+            var pass = Driver.WebDriver.FindElement(_confirm_password_field);
             pass.Clear();
             pass.SendKeys(password);
         }
@@ -74,8 +74,8 @@ namespace POM.Pages
         public void FillInRegisterForm()
         {
             FillFirstName(Faker.Name.First());
-            FillMiddleName( Faker.Name.Middle());
-            FillLastName( Faker.Name.Last());
+            FillMiddleName(Faker.Name.Middle());
+            FillLastName(Faker.Name.Last());
             FillEmail(Faker.Name.Last() + "@yahoo.com");
             FillPassword("asdasd");
             FillConfirmPassword("asdasd");

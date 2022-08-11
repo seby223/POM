@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System.Linq;
 using POM.Helpers;
-using OpenQA.Selenium.Support.UI;
 
 namespace POM.Pages
 {
@@ -9,17 +7,21 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _guest_option = By.CssSelector("[id=\"login:guest\"]");
-        private readonly By _guest_continue_button = By.CssSelector("#onepage-guest-register-button");
-        
+        private readonly By _guestOption = By.CssSelector("[id=\"login:guest\"]");
+        private readonly By _continueButton = By.CssSelector("#onepage-guest-register-button");
+
         #endregion
 
-        public void SelectGuestOption()
+        public void CheckoutAsGuest()
         {
-            Driver.WebDriver.FindElement(_guest_option).Click();
-            Driver.WebDriver.FindElement(_guest_continue_button).Click();
+            Driver.WebDriver.FindElement(_guestOption).Click();
         }
 
-       
+        public void ClickContinueButton()
+        {
+            Driver.WebDriver.FindElement(_continueButton).Click();
+        }
+
+
     }
 }

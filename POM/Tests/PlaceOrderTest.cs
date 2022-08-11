@@ -19,8 +19,10 @@ namespace POM.Tests
 
             Pages.CartPage.ClickOnCheckoutButton();
 
-            Pages.CheckoutPage.SelectGuestOption();
-            
+            Pages.CheckoutPage.CheckoutAsGuest();
+
+            Pages.CheckoutPage.ClickContinueButton();
+
             //Pages.CheckoutPage.FillOutBillingForm();
             Pages.CheckoutBillingPage.FillOutForm();
 
