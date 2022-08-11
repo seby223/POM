@@ -42,7 +42,35 @@ namespace POM.Tests
             Pages.RegisterPage.ClickOnRegister();
 
             Pages.AccountPage.VerifyRegisterMessage(Constants.RegisterSuccesssMessage).Should().BeTrue();
-        } 
+        }
+        [Test]
+        public void RegisterWithoutMail()
+        {
+            Pages.Header.GoToRegister();
+            Pages.RegisterPage.FillFirstName(Faker.Name.First());
+            Pages.RegisterPage.FillLastName(Faker.Name.Last());
+            Pages.RegisterPage.FillPassword(Constants.GoodAccountPassword);
+            Pages.RegisterPage.FillConfirmPassword(Constants.GoodAccountPassword);
+            Pages.RegisterPage.ClickOnRegister();
+            Pages.RegisterPage.VerifyErrorMessage("\"Email\" is a required value.").Should().BeTrue();
+        }
+
+        [Test]
+        public void RegisterWithExistingEmail()
+        {
+            Pages.Header.GoToRegister();
+            Pages.RegisterPage.FillFirstName(Faker.Name.First());
+            Pages.RegisterPage.FillLastName(Faker.Name.Last());
+            Pages.RegisterPage.FillEmail(Constants.GoodAccountEmail);
+            Pages.RegisterPage.FillPassword(Constants.GoodAccountPassword);
+            Pages.RegisterPage.FillConfirmPassword(Constants.GoodAccountPassword);
+            Pages.RegisterPage.ClickOnRegister();
+            Pages.RegisterPage.VerifyErrorMessage("There is already an account with this email address. " +
+                "If you are sure that it is your email address, click here to get your password and access" +
+                " your account.").Should().BeTrue();
+            Pages.RegisterPage.ClickExistingAccountErrorButton();
+            Pages.RegisterPage.VerifyForgotPassword().Should().BeTrue();
+        }
     }
 }
 
