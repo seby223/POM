@@ -7,7 +7,6 @@ namespace POM.Tests
     [TestFixture]
     public class ProductDetailsPageTest : BaseTest
     {
-
         [Test]
         public void AddToCartButtonIsDisplayed()
         {
@@ -50,7 +49,7 @@ namespace POM.Tests
         [Test]
         public void AddToCartPageTest()
         {
-            Pages.Header.HoverCategory();
+            Pages.Header.SelectSubcategory();
 
             Pages.ProductCategoryPage.SelectFromProductList();
 
@@ -62,7 +61,7 @@ namespace POM.Tests
 
             Pages.ProductDetailsPage.ClickOnAddToCart();
 
-            Assert.True(Pages.CartPage.VerifyShoppingCartProduct());
+            Pages.CartPage.VerifyShoppingCartProduct().Should().BeTrue();
             
         }
 

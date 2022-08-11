@@ -8,23 +8,29 @@ namespace POM.Tests
     public class WishlistTest : BaseTest
     {
         [Test]
-        public void AddToWishlist()
+
+        [TestCase(0, 1, 2)]
+        public void AddToWishlist(int color, int size, int quantity)
         {
             Pages.Header.GoToLogIn();
 
-            Pages.LoginPage.LogIn(Constants.GOODACCOUNTEMAIL, Constants.GOODACCOUNTPASSWORD);
+            Pages.LoginPage.LogIn(Constants.GoodAccountEmail, Constants.GoodAccountPassword);
 
-            Pages.Header.HoverCategory();
+            Pages.Header.SelectSubcategory();
 
             Pages.ProductCategoryPage.SelectFromProductList();
 
-            Pages.ProductDetailsPage.SelectColor(0);
+            Pages.ProductDetailsPage.SelectColor(color);
 
-            Pages.ProductDetailsPage.SelectSize(0);
+            Pages.ProductDetailsPage.SelectSize(size);
 
-            Pages.ProductDetailsPage.SelectQuantity(5);
+            Pages.ProductDetailsPage.SelectQuantity(quantity);
 
             Pages.ProductDetailsPage.AddToWishlist();
+
+            Pages.WishlistPage.ClickOnAddToCart();
+
+            Pages.CartPage.VerifyShoppingCartProduct().Should().BeTrue();
 
         }
     }

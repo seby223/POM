@@ -62,7 +62,7 @@ namespace POM.Pages
         {
             return Driver.WebDriver.FindElement(_minicartCount).Text;
         }
-        public void HoverCategory()
+        public void SelectSubcategory()
         {
             Actions actions = new Actions(Driver.WebDriver);
 
