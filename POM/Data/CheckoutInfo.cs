@@ -8,12 +8,6 @@ namespace POM.Data
 {
     public class CheckoutInfo
     {
-        public CheckoutInfo(bool opt)
-        {
-            //Optionals = 
-        }
-        public bool Optionals { get; set; }
-        public bool LoggedIn { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -27,7 +21,5 @@ namespace POM.Data
         public string Phone { get; set; }
         public string Fax { get; set; }
         public int ShippingMethod { get; set; }
-
-
     }
 }
