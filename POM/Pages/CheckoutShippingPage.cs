@@ -104,7 +104,7 @@ namespace POM.Pages
 
         public void SameAddressClientContinue()
         {
-            WaitHelper.WaitUntilElementVisible(_edit_link);
+            WaitHelper.WaitUntilElementVisible(_editLink);
             ClickOnEdit();
             ClickOnContinue();
         }

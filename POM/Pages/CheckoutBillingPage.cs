@@ -105,6 +105,7 @@ namespace POM.Pages
             FillState("3");
             FillZip("123123");
             FillPhone("1231231231");
+            SelectSameShippingAddress(true);
             ClickOnContinue();
         }
     }
