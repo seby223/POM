@@ -11,7 +11,7 @@ namespace POM.Tests
         [Test]
         public void Order1ItemGuest()
         {
-            Pages.Header.Search("swiss");
+            Pages.Header.Search(Constants.ItemForPlaceOrder);
 
             Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
 
@@ -45,9 +45,9 @@ namespace POM.Tests
         {
             Pages.Header.GoToLogIn();
 
-            Pages.LoginPage.LogIn(Constants.GOODACCOUNTNOITEMSEMAIL, Constants.GOODACCOUNTNOITEMSPASS);
+            Pages.LoginPage.LogIn(Constants.GoodAccountNoItemsEmail, Constants.GoodAccountNoItemsPassword);
 
-            Pages.Header.Search("swiss");
+            Pages.Header.Search(Constants.ItemForPlaceOrder);
 
             Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
 

@@ -7,10 +7,10 @@ namespace POM.Helpers
     {
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            Driver.WebDriver = new ChromeDriver(Constants.DRIVERPATH);
-            Driver.WebDriver.Navigate().GoToUrl(Constants.WEBSITE);
+            Driver.WebDriver = new ChromeDriver(Constants.DriverPath);
+            Driver.WebDriver.Navigate().GoToUrl(Constants.Website);
         }
 
         [TearDown]

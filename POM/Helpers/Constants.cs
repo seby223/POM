@@ -3,16 +3,17 @@
     public class Constants
     {
 
-        public const string DRIVERPATH = ".\\Drivers";
-        public const string WEBSITE = "http://qa2magento.dev.evozon.com/";
-        public const string GOODACCOUNTEMAIL = "asd@yahoo.com";
-        public const string GOODACCOUNTPASSWORD = "asdasd";
-        public const string BADACCOUNTEMAIL = "randomstring@yahoo.com";
-        public const string BADACCOUNTPASSWORD = "badbad";
-        public const string ASDACCOUNTHELLOMESSAGE = "Hello, FirstName MiddleName LastName!";
-        public const string REGISTERSUCCESSMESSAGE = "Thank you for registering with Madison Island.";
-        public const string GOODACCOUNTNOITEMSEMAIL = "qwe@yahoo.com";
-        public const string GOODACCOUNTNOITEMSPASS = "qweqwe";
+        public const string DriverPath = ".\\Drivers";
+        public const string Website = "http://qa2magento.dev.evozon.com/";
+        public const string GoodAccountEmail = "asd@yahoo.com";
+        public const string GoodAccountPassword = "asdasd";
+        public const string BadAccountEmail = "randomstring@yahoo.com";
+        public const string BadAccountPassword = "badbad";
+        public const string AsdAccountHelloMessage = "Hello, FirstName MiddleName LastName!";
+        public const string RegisterSuccesssMessage = "Thank you for registering with Madison Island.";
+        public const string GoodAccountNoItemsEmail = "qwe@yahoo.com";
+        public const string GoodAccountNoItemsPassword = "qweqwe";
+        public const string ItemForPlaceOrder = "swiss";
 
     }
 }
