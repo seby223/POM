@@ -28,7 +28,7 @@ namespace POM.Pages
 
         #endregion
 
-        public void SelectShippingAddress(bool a)
+        public void SelectSameShippingAddress(bool a)
         {
             if (a)
                 Driver.WebDriver.FindElements(_same_address_radio_list).First().Click();
@@ -82,7 +82,7 @@ namespace POM.Pages
             FillAddress("asd@yahoo.com", "asd home", "asd city");
             FillCountryandState("US", "3");
             FillZipPhone("123123", "1231231231");
-            SelectShippingAddress(true);
+            SelectSameShippingAddress(true);
             ClickOnContinue();
         }
     }

@@ -17,23 +17,54 @@ namespace POM.Pages
         private readonly By _register_button = By.CssSelector(".buttons-set .button");
         #endregion
 
-        public void FillNames(string first, string middle, string last)
+        public void FillFirstName(string first)
         {
-            Driver.WebDriver.FindElement(_first_name_field).SendKeys(first);
-            Driver.WebDriver.FindElement(_middle_name_field).SendKeys(middle);
-            Driver.WebDriver.FindElement(_last_name_field).SendKeys(last);
+            var firstName = Driver.WebDriver.FindElement(_first_name_field);
+            firstName.Clear();
+            firstName.SendKeys(first);
+
+        }
+
+        public void FillMiddleName( string middle)
+        {
+            
+            var middleName = Driver.WebDriver.FindElement(_middle_name_field);
+            middleName.Clear();
+            middleName.SendKeys(middle);
+        }
+
+        public void FillLastName( string last)
+        {
+
+            var lastName=Driver.WebDriver.FindElement(_last_name_field);
+            lastName.Clear();
+            lastName.SendKeys(last);
         }
 
         public void FillEmail(string email)
         {
-            Driver.WebDriver.FindElement(_email_field).SendKeys(email);
+            var mail=Driver.WebDriver.FindElement(_email_field);
+            mail.Clear();
+            mail.SendKeys(email);
         }
 
         public void FillPassword(string password)
         {
-            Driver.WebDriver.FindElement(_password_field).SendKeys(password);
-            Driver.WebDriver.FindElement(_confirm_password_field).SendKeys(password);
+            var pass=Driver.WebDriver.FindElement(_password_field);
+            pass.Clear();
+            pass.SendKeys(password);
+
         }
+
+        public void FillConfirmPassword(string password)
+        {
+            
+            var pass=Driver.WebDriver.FindElement(_confirm_password_field);
+            pass.Clear();
+            pass.SendKeys(password);
+        }
+
+
 
         public void ClickOnRegister()
         {
@@ -42,9 +73,12 @@ namespace POM.Pages
 
         public void FillInRegisterForm()
         {
-            FillNames(Faker.Name.First(), Faker.Name.Middle(), Faker.Name.Last());
+            FillFirstName(Faker.Name.First());
+            FillMiddleName( Faker.Name.Middle());
+            FillLastName( Faker.Name.Last());
             FillEmail(Faker.Name.Last() + "@yahoo.com");
             FillPassword("asdasd");
+            FillConfirmPassword("asdasd");
         }
     }
 }

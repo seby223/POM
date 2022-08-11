@@ -77,5 +77,12 @@ namespace POM.Pages
             FillZipPhone(Faker.RandomNumber.Next().ToString(), Faker.RandomNumber.Next().ToString());
             ClickOnContinue();
         }
+
+        public void SameAddressClientContinue()
+        {
+            WaitHelper.WaitUntilElementVisible(_edit_link);
+            ClickOnEdit();
+            ClickOnContinue();
+        }
     }
 }
