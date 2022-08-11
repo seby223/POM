@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using POM.Helpers;
 using OpenQA.Selenium.Support.UI;
+using POM.Data;
 
 namespace POM.Pages
 {
@@ -87,18 +88,18 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_telephoneText).SendKeys(telephone);
         }
 
-        public void FillOutForm()
+        public void FillOutForm(CheckoutInfo checkoutInfo)
         {
             WaitHelper.WaitUntilElementVisible(_editLink);
             ClickOnEdit();
-            FillFirstName(Faker.Name.First());
-            FillLastName(Faker.Name.Last());
-            FillAddress(Faker.Address.StreetAddress());
-            FillCity(Faker.Address.City());
-            FillCountry("US");
-            FillState("3");
-            FillZip(Faker.RandomNumber.Next().ToString());
-            FillPhone(Faker.RandomNumber.Next().ToString());
+            FillFirstName(checkoutInfo.FirstName);
+            FillLastName(checkoutInfo.LastName);
+            FillAddress(checkoutInfo.Address1);
+            FillCity(checkoutInfo.City);
+            FillCountry(checkoutInfo.Country);
+            FillState(checkoutInfo.State);
+            FillZip(checkoutInfo.Zip);
+            FillPhone(checkoutInfo.Phone);
             ClickOnContinue();
         }
 
