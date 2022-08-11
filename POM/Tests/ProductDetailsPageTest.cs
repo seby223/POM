@@ -57,7 +57,7 @@ namespace POM.Tests
 
             Pages.ProductDetailsPage.SelectSize(0);
 
-            Pages.ProductDetailsPage.SelectQuantity(5);
+            Pages.ProductDetailsPage.SelectQuantity(2);
 
             Pages.ProductDetailsPage.ClickOnAddToCart();
 
