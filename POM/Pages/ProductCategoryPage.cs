@@ -29,7 +29,7 @@ namespace POM.Pages
                     productItem.FindElement(_colorList);
                     productsWithColorOptionList.Add(productItem);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Products without color option");
                 }
