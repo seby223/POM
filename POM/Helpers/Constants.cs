@@ -12,5 +12,6 @@
         public const string ASDACCOUNTHELLOMESSAGE = "Hello, FirstName MiddleName LastName!";
         public const string REGISTERSUCCESSMESSAGE = "Thank you for registering with Madison Island.";
 
+
     }
 }

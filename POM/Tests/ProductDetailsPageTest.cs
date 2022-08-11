@@ -65,5 +65,6 @@ namespace POM.Tests
             Assert.True(Pages.CartPage.VerifyShoppingCartProduct());
             
         }
+
     }
 }
