@@ -6,7 +6,6 @@ namespace POM.Tests
 {
     public static class Pages
     {
-
         public static HomePage HomePage => InitPage(new HomePage());
         public static SearchResultsPage SearchResultsPage => InitPage(new SearchResultsPage());
         public static ProductDetailsPage ProductDetailsPage => InitPage(new ProductDetailsPage());
@@ -17,12 +16,13 @@ namespace POM.Tests
         public static AccountPage AccountPage => InitPage(new AccountPage());
         public static RegisterPage RegisterPage => InitPage(new RegisterPage());
         public static ProductCategoryPage ProductCategoryPage => InitPage(new ProductCategoryPage());
-
         public static CheckoutBillingPage CheckoutBillingPage => InitPage(new CheckoutBillingPage());
         public static CheckoutShippingPage CheckoutShippingPage => InitPage(new CheckoutShippingPage());
         public static CheckoutShipMethodPage CheckoutShippingMethodPage => InitPage(new CheckoutShipMethodPage());
         public static CheckoutPaymentPage CheckoutPaymentPage => InitPage(new CheckoutPaymentPage());
         public static CheckoutReviewOrderPage CheckoutReviewOrderPage => InitPage(new CheckoutReviewOrderPage());
+        public static WishlistPage WishlistPage => InitPage(new WishlistPage());
+
         public static T InitPage<T> (T page)
         {
             PageFactory.InitElements (Driver.WebDriver, page);
@@ -30,4 +30,3 @@ namespace POM.Tests
         }
     }
 }
-//asd

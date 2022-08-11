@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System.Linq;
 using POM.Helpers;
-using OpenQA.Selenium.Support.UI;
 
 namespace POM.Pages
 {
@@ -9,20 +7,20 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _place_order_button = By.CssSelector(".button.btn-checkout");
-        private readonly By _order_placed_successfully = By.CssSelector(".page-title h1");
+        private readonly By _placeOrderButton = By.CssSelector(".button.btn-checkout");
+        private readonly By _orderPlacedSuccessfully = By.CssSelector(".page-title h1");
 
         #endregion
 
         public void ClickOnPlaceOrder()
         {
-            WaitHelper.WaitUntilElementVisible(_place_order_button);
-            Driver.WebDriver.FindElement(_place_order_button).Click();
+            WaitHelper.WaitUntilElementVisible(_placeOrderButton);
+            Driver.WebDriver.FindElement(_placeOrderButton).Click();
         }
 
         public bool OrderSuccess()
         {
-            return Driver.WebDriver.FindElement(_order_placed_successfully).Displayed;
+            return Driver.WebDriver.FindElement(_orderPlacedSuccessfully).Displayed;
         }
 
     }
