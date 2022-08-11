@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System.Linq;
 using POM.Helpers;
-using System.Collections.Generic;
 using OpenQA.Selenium.Interactions;
 
 namespace POM.Pages
