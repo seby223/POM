@@ -8,7 +8,7 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _productNameList = By.CssSelector("li.item.last");
+        private readonly By _productNameList = By.CssSelector(".category-products .item.last > a > img");
 
         #endregion
 
