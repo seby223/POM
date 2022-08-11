@@ -1,25 +1,23 @@
 ﻿using OpenQA.Selenium;
-using System.Linq;
 using POM.Helpers;
-//using Faker;
 
 namespace POM.Pages
 {
     public class RegisterPage
     {
         #region Selectors
-        private readonly By _first_name_field = By.CssSelector("#firstname");
-        private readonly By _middle_name_field = By.CssSelector("#middlename");
-        private readonly By _last_name_field = By.CssSelector("#lastname");
-        private readonly By _email_field = By.CssSelector("#email_address");
-        private readonly By _password_field = By.CssSelector("#password");
-        private readonly By _confirm_password_field = By.CssSelector("#confirmation");
-        private readonly By _register_button = By.CssSelector(".buttons-set .button");
+        private readonly By _firstNameField = By.CssSelector("#firstname");
+        private readonly By _middleNameField = By.CssSelector("#middlename");
+        private readonly By _lastNameField = By.CssSelector("#lastname");
+        private readonly By _emailField = By.CssSelector("#email_address");
+        private readonly By _passwordField = By.CssSelector("#password");
+        private readonly By _confirmPasswordField = By.CssSelector("#confirmation");
+        private readonly By _registerButton = By.CssSelector(".buttons-set .button");
         #endregion
 
         public void FillFirstName(string first)
         {
-            var firstName = Driver.WebDriver.FindElement(_first_name_field);
+            var firstName = Driver.WebDriver.FindElement(_firstNameField);
             firstName.Clear();
             firstName.SendKeys(first);
 
@@ -28,7 +26,7 @@ namespace POM.Pages
         public void FillMiddleName(string middle)
         {
 
-            var middleName = Driver.WebDriver.FindElement(_middle_name_field);
+            var middleName = Driver.WebDriver.FindElement(_middleNameField);
             middleName.Clear();
             middleName.SendKeys(middle);
         }
@@ -36,21 +34,21 @@ namespace POM.Pages
         public void FillLastName(string last)
         {
 
-            var lastName = Driver.WebDriver.FindElement(_last_name_field);
+            var lastName = Driver.WebDriver.FindElement(_lastNameField);
             lastName.Clear();
             lastName.SendKeys(last);
         }
 
         public void FillEmail(string email)
         {
-            var mail = Driver.WebDriver.FindElement(_email_field);
+            var mail = Driver.WebDriver.FindElement(_emailField);
             mail.Clear();
             mail.SendKeys(email);
         }
 
         public void FillPassword(string password)
         {
-            var pass = Driver.WebDriver.FindElement(_password_field);
+            var pass = Driver.WebDriver.FindElement(_passwordField);
             pass.Clear();
             pass.SendKeys(password);
 
@@ -59,7 +57,7 @@ namespace POM.Pages
         public void FillConfirmPassword(string password)
         {
 
-            var pass = Driver.WebDriver.FindElement(_confirm_password_field);
+            var pass = Driver.WebDriver.FindElement(_confirmPasswordField);
             pass.Clear();
             pass.SendKeys(password);
         }
@@ -68,7 +66,7 @@ namespace POM.Pages
 
         public void ClickOnRegister()
         {
-            Driver.WebDriver.FindElement(_register_button).Click();
+            Driver.WebDriver.FindElement(_registerButton).Click();
         }
 
         public void FillInRegisterForm()

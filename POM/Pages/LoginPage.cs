@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System.Linq;
 using POM.Helpers;
 
 namespace POM.Pages
@@ -8,24 +7,24 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _email_text = By.CssSelector("#email");
-        private readonly By _password_text = By.CssSelector("#pass");
-        private readonly By _login_button = By.CssSelector("#send2");
-        private readonly By _error_message = By.CssSelector(".error-msg span");
+        private readonly By _emailText = By.CssSelector("#email");
+        private readonly By _passwordText = By.CssSelector("#pass");
+        private readonly By _loginButton = By.CssSelector("#send2");
+        private readonly By _errorMessage = By.CssSelector(".error-msg span");
 
         #endregion
 
         public void LogIn(string email, string password)
         {
-            WaitHelper.WaitUntilElementVisible(_login_button);
-            Driver.WebDriver.FindElement(_email_text).SendKeys(email);
-            Driver.WebDriver.FindElement(_password_text).SendKeys(password);
-            Driver.WebDriver.FindElement(_login_button).Click();
+            WaitHelper.WaitUntilElementVisible(_loginButton);
+            Driver.WebDriver.FindElement(_emailText).SendKeys(email);
+            Driver.WebDriver.FindElement(_passwordText).SendKeys(password);
+            Driver.WebDriver.FindElement(_loginButton).Click();
         }
 
         public bool VerifyErrorMessage()
         {
-            return Driver.WebDriver.FindElement(_error_message).Displayed;
+            return Driver.WebDriver.FindElement(_errorMessage).Displayed;
         }
     }
 }

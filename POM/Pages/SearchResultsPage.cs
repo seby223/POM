@@ -1,8 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System.Linq;
 using POM.Helpers;
-using System.Collections.Generic;
-using System;
 using NUnit.Framework;
 
 namespace POM.Pages
