@@ -9,7 +9,7 @@ namespace POM.Pages
     {
         #region Selectors
 
-        private readonly By _productNameList = By.CssSelector("li.item.last");
+        private readonly By _productNameList = By.CssSelector(".category-products .item.last > a > img");
         private readonly By _productName = By.CssSelector("div.category-products > ul > li:nth-child(3) > a");
         private readonly By _dreesList = By.CssSelector("div.category-products > ul > li");
         private readonly By _dressName = By.CssSelector("div.product-info > h2 > a");
