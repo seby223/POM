@@ -62,8 +62,6 @@ namespace POM.Pages
             pass.SendKeys(password);
         }
 
-
-
         public void ClickOnRegister()
         {
             Driver.WebDriver.FindElement(_registerButton).Click();
