@@ -20,5 +20,6 @@ namespace POM.Helpers
             Driver.WebDriver.Close();
             Driver.WebDriver.Quit();
         }
+
     }
 }
