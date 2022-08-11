@@ -68,7 +68,6 @@ namespace POM.Pages
 
             actions.MoveToElement(Driver.WebDriver.FindElement(_category_list));
             actions.MoveToElement(Driver.WebDriver.FindElement(_topsAndBlouses));
-
             actions.Click().Build().Perform();
         }
     }

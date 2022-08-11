@@ -11,6 +11,7 @@ namespace POM.Helpers
         {
             Driver.WebDriver = new ChromeDriver(Constants.DriverPath);
             Driver.WebDriver.Navigate().GoToUrl(Constants.Website);
+            Driver.WebDriver.Manage().Window.Maximize();
         }
 
         [TearDown]

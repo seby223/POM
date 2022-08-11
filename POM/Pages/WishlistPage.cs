@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NsTestFrameworkUI.Pages;
+using OpenQA.Selenium;
 using POM.Helpers;
 
 namespace POM.Pages
@@ -9,9 +10,7 @@ namespace POM.Pages
 
         private readonly By _productWishlist = By.CssSelector("#wishlist-table tbody tr");
 
-        private readonly By _addToCart = By.CssSelector(".button.btn-cart");
-
-        private readonly By _addAllToCart = By.CssSelector(".buttons-set .buttons-set2 .button.btn-add");
+        private readonly By _addToCart = By.CssSelector(".cart-cell .btn-cart");
 
         #endregion
 
@@ -19,10 +18,5 @@ namespace POM.Pages
         {
             Driver.WebDriver.FindElement(_productWishlist).FindElement(_addToCart).Click();
         }
-        public void ClickOnAddAllToCart()  
-        {
-            Driver.WebDriver.FindElement(_addAllToCart).Click();
-        }
-
     }
 }
