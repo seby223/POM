@@ -30,7 +30,7 @@ namespace POM.Pages
         public void FillOutForm(CheckoutInfo checkoutInfo)
         {
             WaitHelper.WaitUntilElementVisible(_continueButton);
-            SelectShippingMethod(checkoutInfo.ShippingMethod);
+            SelectShippingMethod(checkoutInfo.ShippingMethod.ToString());
             ClickOnContinue();
         }
     }

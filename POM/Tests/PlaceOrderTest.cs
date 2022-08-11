@@ -1,12 +1,24 @@
 ﻿using POM.Helpers;
 using NUnit.Framework;
 using FluentAssertions;
+using POM.Data;
 
 namespace POM.Tests
 {
     [TestFixture]
     public class PlaceOrderTest : BaseTest
     {
+        CheckoutInfo checkoutinfo = new CheckoutInfo
+        {
+            FirstName = Faker.Name.First(),
+            LastName = Faker.Name.Last(),
+            email = "asd@yahoo.com",
+            Address1 = Faker.Address.StreetAddress(),
+            City = Faker.Address.City(),
+            Zip = Faker.RandomNumber.Next().ToString(),
+            Phone = Faker.RandomNumber.Next().ToString(),
+            ShippingMethod = "free"
+        };
         [Test]
         public void Order1ItemGuest()
         {
@@ -22,11 +34,11 @@ namespace POM.Tests
 
             Pages.CheckoutPage.ClickContinueButton();
 
-            Pages.CheckoutBillingPage.FillOutForm();
+            Pages.CheckoutBillingPage.FillOutForm(checkoutinfo);
 
-            Pages.CheckoutShippingPage.FillOutForm();
+            Pages.CheckoutShippingPage.FillOutForm(checkoutinfo);
 
-            Pages.CheckoutShippingMethodPage.FillOutForm();
+            Pages.CheckoutShippingMethodPage.FillOutForm(checkoutinfo);
 
             Pages.CheckoutPaymentPage.PaymentClickOnContinue();
 
@@ -56,7 +68,7 @@ namespace POM.Tests
 
             Pages.CheckoutShippingPage.SameAddressClientContinue();
 
-            Pages.CheckoutShippingMethodPage.FillOutForm();
+            Pages.CheckoutShippingMethodPage.FillOutForm(checkoutinfo);
 
             Pages.CheckoutPaymentPage.PaymentClickOnContinue();
 
