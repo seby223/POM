@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using POM.Data;
 using POM.Helpers;
 
 namespace POM.Pages
