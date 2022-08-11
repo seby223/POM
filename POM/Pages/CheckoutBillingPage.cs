@@ -93,18 +93,18 @@ namespace POM.Pages
             Driver.WebDriver.FindElement(_continueButton).Click();
         }
 
-        public void FillOutForm()
+        public void FillOutForm(CheckoutInfo checkoutInfo)
         {
             WaitHelper.WaitUntilElementVisible(_continueButton);
-            FillFirstName("first");
-            FillLastName("last");
-            FillEmail("asd@yahoo.com");
-            FillAddress("asd home");
-            FillCity("asd city");
-            FillCountry("US");
-            FillState("3");
-            FillZip("123123");
-            FillPhone("1231231231");
+            FillFirstName(checkoutInfo.FirstName);
+            FillLastName(checkoutInfo.LastName);
+            FillEmail(checkoutInfo.Email);
+            FillAddress(checkoutInfo.Address1);
+            FillCity(checkoutInfo.City);
+            FillCountry(checkoutInfo.Country);
+            FillState(checkoutInfo.State);
+            FillZip(checkoutInfo.Zip);
+            FillPhone(checkoutInfo.Phone);
             SelectSameShippingAddress(true);
             ClickOnContinue();
         }
