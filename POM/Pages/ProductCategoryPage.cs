@@ -2,6 +2,7 @@
 using POM.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace POM.Pages
 {
@@ -15,6 +16,10 @@ namespace POM.Pages
 
         #endregion
 
+        public void SelectProduct(int productIndex)
+        {
+            Driver.WebDriver.FindElements(_productList).ToArray()[productIndex].Click();
+        }
 
         public void SelectFromProductList()
         {

@@ -49,7 +49,7 @@ namespace POM.Tests
         [Test]
         public void AddToCartPageTest()
         {
-            Pages.Header.SelectSubcategory();
+            Pages.Header.SelectSubcategory(0,2);
 
             Pages.ProductCategoryPage.SelectFromProductList();
 

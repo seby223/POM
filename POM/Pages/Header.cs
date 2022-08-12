@@ -16,7 +16,7 @@ namespace POM.Pages
         private readonly By _searchButton = By.CssSelector(".button.search-button");
         private readonly By _logo = By.CssSelector(".logo");
         private readonly By _minicartCount = By.CssSelector(".count");
-        private readonly By _topsAndBlouses = By.CssSelector(".level1.nav-1-2");
+        private readonly By _subcategoryList = By.CssSelector("li.level1");
 
         #endregion
 
@@ -53,12 +53,14 @@ namespace POM.Pages
         {
             return Driver.WebDriver.FindElement(_minicartCount).Text;
         }
-        public void SelectSubcategory()
-        {
-            Actions actions = new Actions(Driver.WebDriver);
 
-            actions.MoveToElement(Driver.WebDriver.FindElement(_categoryList));
-            actions.MoveToElement(Driver.WebDriver.FindElement(_topsAndBlouses));
+        public void SelectSubcategory(int categoryIndex, int subcategoryIndex)
+        {
+            var actions = new Actions(Driver.WebDriver);
+            var categoryList = Driver.WebDriver.FindElements(_categoryList).ToArray()[categoryIndex];
+
+            actions.MoveToElement(categoryList);
+            actions.MoveToElement(categoryList.FindElements(_subcategoryList).ToArray()[subcategoryIndex]);
             actions.Click().Build().Perform();
         }
     }

@@ -15,7 +15,7 @@ namespace POM.Tests
 
             Pages.LoginPage.LogIn(Constants.GoodAccountEmail, Constants.GoodAccountPassword);
 
-            Pages.Header.SelectSubcategory();
+            Pages.Header.SelectSubcategory(0, 2);
 
             Pages.ProductCategoryPage.SelectFromProductList();
 
@@ -40,7 +40,7 @@ namespace POM.Tests
 
             Pages.LoginPage.LogIn(Constants.GoodAccountEmail, Constants.GoodAccountPassword);
 
-            Pages.Header.SelectSubcategory();
+            Pages.Header.SelectSubcategory(0, 2);
 
             Pages.ProductCategoryPage.SelectFromProductList();
 

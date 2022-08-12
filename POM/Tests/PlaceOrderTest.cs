@@ -21,9 +21,9 @@ namespace POM.Tests
         [Test]
         public void Order1ItemGuest()
         {
-            Pages.Header.Search(Constants.ItemForPlaceOrder);
+            Pages.Header.SelectSubcategory(2, 2);
 
-            Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
+            Pages.ProductCategoryPage.SelectProduct(4);
 
             Pages.ProductDetailsPage.ClickOnAddToCart();
 
@@ -53,9 +53,9 @@ namespace POM.Tests
 
             Pages.LoginPage.LogIn(Constants.GoodAccountNoItemsEmail, Constants.GoodAccountNoItemsPassword);
 
-            Pages.Header.Search(Constants.ItemForPlaceOrder);
+            Pages.Header.SelectSubcategory(2, 2);
 
-            Pages.SearchResultsPage.GoToDetailsPageOfFirstItem();
+            Pages.ProductCategoryPage.SelectProduct(4);
 
             Pages.ProductDetailsPage.ClickOnAddToCart();
 
