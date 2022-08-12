@@ -13,7 +13,6 @@ namespace POM.Pages
         private readonly By _productList = By.CssSelector(".category-products > ul > li");
         private readonly By _colorList = By.CssSelector(".configurable-swatch-list.configurable-swatch-color.clearfix");
 
-
         #endregion
 
         public void SelectProduct(int productIndex)

@@ -13,6 +13,9 @@ namespace POM.Pages
         private readonly By _passwordField = By.CssSelector("#password");
         private readonly By _confirmPasswordField = By.CssSelector("#confirmation");
         private readonly By _registerButton = By.CssSelector(".buttons-set .button");
+        private readonly By _existingAccountErrorButton = By.CssSelector(".error-msg a");
+        private readonly By _errorMessage = By.CssSelector(".error-msg");
+        private readonly By _forgotPassword = By.CssSelector(".page-title h1");
         #endregion
 
         public void FillFirstName(string first)
@@ -62,11 +65,26 @@ namespace POM.Pages
             pass.SendKeys(password);
         }
 
-
-
         public void ClickOnRegister()
         {
             Driver.WebDriver.FindElement(_registerButton).Click();
+        }
+
+        public void ClickExistingAccountErrorButton()
+        {
+            Driver.WebDriver.FindElement(_existingAccountErrorButton).Click();
+        }
+
+        public bool VerifyErrorMessage(string message)
+        {
+
+            return Driver.WebDriver.FindElement(_errorMessage).Text.Equals(message);
+        }
+
+        public bool VerifyForgotPassword()
+        {
+
+            return Driver.WebDriver.FindElement(_forgotPassword).Displayed;
         }
 
         public void FillInRegisterForm()
